@@ -1,0 +1,333 @@
+:root {
+    --pink: #ffdcd0;
+    --white: #fff;
+    --contrast: rgb(109, 109, 109);
+    --black: #000;
+    --offWhite: #fafafa;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    font-family: 'Roboto Slab', serif;
+    position: relative;
+    width: 100%;
+}
+
+.stop-scroll {
+    height: 100%;
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: var(--black);
+}
+
+ul {
+    list-style: none;
+}
+
+.current {
+    border-bottom: 1px solid var(--black) !important;
+}
+
+.container {
+    width: 100%;
+    background: var(--white);
+    display: flex;
+    justify-content: center;
+}
+
+#site-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+hr {
+    width: 50%;
+    color: var(--contrast);
+    margin-top: 75px;
+}
+
+span {
+    color: var(--contrast);
+}
+
+/* Navbar */
+#navbar {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--offWhite);
+    width: 100%;
+    height: 100px;
+    z-index: 10;
+    transition: all .2s ease-in-out;
+}
+
+#navbar h2 {
+    margin-top: 10px;
+} 
+
+#navbar ul {
+    display: flex;
+    flex-direction: row;
+    align-items: space-between;
+    margin: 20px 0px;
+    text-align: center;
+}
+
+#navbar.scrolled {
+    transform: translateY(-40px);
+}
+
+#nav-links li {
+    margin-right: 25px;
+}
+
+#nav-links a {
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(0,0,0,0);
+    transition: border-bottom .5s ease;
+}
+
+#nav-links a:hover {
+    border-bottom: 1px solid rgba(0,0,0,1);
+}
+
+
+/* Toggle Button */
+#toggle-btn {
+    position: fixed;
+    z-index: 11;
+    right: 10px;
+    top: 10px;
+    height: 50px;
+    width: 50px;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    display: none;
+}
+
+#toggle-btn #burger {
+    width: 40px;
+    height: 2px;
+    background: var(--black);
+    transition: all .5s ease-in-out;
+}
+
+#toggle-btn #burger::before,
+#toggle-btn #burger::after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 2px;
+    background: var(--black);  
+    transition: all .5s ease-in-out;
+}
+
+#toggle-btn #burger::before {
+    transform: translateY(-10px);
+}
+
+#toggle-btn #burger::after {
+    transform: translateY(10px);
+}
+
+#toggle-btn.open #burger {
+    transform: translateX(-50px);
+    background: transparent;
+}
+
+#toggle-btn.open #burger::before {
+    transform: translateX(50px) rotate(-45deg);
+}
+
+#toggle-btn.open #burger::after {
+    transform: translateX(50px) rotate(45deg);
+}
+
+
+/* Side bar */
+#side-bar {
+    position: absolute;
+    z-index: 10;
+    width: 0%;
+    height: 100%;
+    right: -10px;
+    background: var(--offWhite);
+    padding: 25px 5px;
+    transition: all .3s ease-in-out;
+    opacity: 0;
+    /* display: none; */
+}
+
+
+#side-bar.active {
+    position: absolute;
+    z-index: 10;
+    width: 75%;
+    height: 100%;
+    right: 0;
+    background: var(--offWhite);
+    padding: 25px 5px;
+    opacity: 1;
+}
+
+#side-bar h2 {
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    display: block;
+    border-bottom: var(--contrast) 1px solid;
+    font-weight: lighter;
+}
+
+#side-bar #nav-links li {
+    margin-bottom: 25px;
+    font-size: 1.3rem;
+    font-weight: lighter;
+} 
+
+/* intro-header */
+#intro-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+    background: url(./photos/v\ holding\ s\ by\ waist\ tightly\ both\ smiling.jpg) no-repeat center center/cover;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--white);
+}
+
+#intro-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 0;
+}
+
+#intro-header h1 {
+    z-index: 5;
+    text-shadow: var(--black) 4px 3px 1px;
+}
+
+/* Marriage Splash */
+#marry-splash {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: var(--pink);
+    color: var(--contrast);
+    font-size: 1.7rem;
+    width: 100%;
+    height: 800px;
+    z-index: -1;
+}
+
+#top-flower {
+    position: absolute;
+    top: -50px;
+    width: 100%;
+}
+
+#bottom-flower {
+    position: absolute;
+    transform: rotate(180deg);
+    bottom: -50px;
+    width: 100%;
+
+}
+
+#marry-splash h1,
+#marry-splash h3 {
+    margin: 20px;
+}
+
+/* Main Content */
+#main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--contrast);
+    width: 70%;
+    padding-bottom: 90px;
+}
+
+#main-content p {
+    font-size: 1.2rem;
+    line-height: 2rem;
+    margin: 15px 0;
+}
+
+#main-content img {
+    width: 75%;
+    max-height: auto;
+    margin: 20px 0px;
+}
+
+#main-content h1 {
+    margin: 120px 0 15px 0;
+    font-size: 2.2rem;
+    font-weight: lighter;
+}
+
+#main-content b {
+    font-style: italic;
+}
+
+#main-content a {
+    color: rgb(255, 155, 155);
+    font-weight: bolder;
+}
+
+/* Footer Area */
+#footer-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    background: var(--pink);
+}
+
+#footer-img {
+    background: url(./photos/big\ cheesin.jpg) no-repeat center center/cover;
+    width: 100%;
+    height: 500px;
+}
+
+#footer-area h1,
+#footer-area h2,
+#footer-area h3 {
+    margin: 20px 0;
+}
+
+
+
